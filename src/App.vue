@@ -1,17 +1,22 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <branch :content="treeContent" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import jsonTree from '../public/static/node_modules.json'
+import Branch from './components/Branch.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Branch
+  },
+  data () {
+    return {
+      treeContent: jsonTree
+    }
   }
 }
 </script>
@@ -21,8 +26,8 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  margin-left: 60px;
 }
 </style>
