@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <branch :content="treeContent" />
+    <Branch :content="treeContent" />
   </div>
 </template>
 

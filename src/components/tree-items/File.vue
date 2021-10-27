@@ -7,7 +7,7 @@
     @keydown.up.prevent="goToPrev"
     tabindex="0"
   >
-    <tree-item>
+    <TreeItem>
 
       <template v-slot:icon>
         <svg
@@ -16,14 +16,14 @@
           :viewBox="`0 0 ${ iconSize / 2 } ${ iconSize / 2 }`"
         >
           <path
-            :class="{ 'icon': true, 'icon_active': isFocused }"
+            :class="['icon', { 'icon_active': isFocused }]"
             :d="iconpath"
           />
         </svg>
       </template>
 
       <template v-slot:content>
-        <div :class="{ 'item-name': true, 'item-name_active': isFocused }">
+        <div :class="['item-name', { 'item-name_active': isFocused }]">
           {{ itemData.name }}
         </div>
       </template>
@@ -37,7 +37,7 @@
         </div>
       </template>
 
-    </tree-item>
+    </TreeItem>
   </div>
 </template>
 

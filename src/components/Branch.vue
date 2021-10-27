@@ -1,7 +1,8 @@
 <template>
   <div>
-    <directory-item
+    <DirectoryItem
       :itemData="{ name: content.name, path: path }"
+      :isOpened="childIsVisible"
       @toggle="childIsVisible = !childIsVisible"
     />
 
@@ -12,16 +13,16 @@
         :style="{ paddingLeft: `${indentSize}px` }"
       >
         
-        <file-item
+        <FileItem
           v-if="item.type === 'file'"
           :itemData="{ name: item.name, path: `${path}${content.name}\\${item.name}` }"
         />
-        <link-item
+        <LinkItem
           v-if="item.type === 'link'"
-          :itemData="{ name: item.name, path: `${path}${content.name}\\${item.name}` }"
+          :itemData="{ name: item.name, target: item.target, path: `${path}${content.name}\\${item.name}` }"
         />
 
-        <branch
+        <Branch
           v-if="item.type === 'directory'"
           :path="`${path}${content.name}\\`"
           :content="item"
@@ -33,9 +34,9 @@
 </template>
 
 <script>
-import DirectoryItem from './tree_items/Directory.vue'
-import FileItem from './tree_items/File.vue'
-import LinkItem from './tree_items/Link.vue'
+import DirectoryItem from './tree-items/Directory.vue'
+import FileItem from './tree-items/File.vue'
+import LinkItem from './tree-items/Link.vue'
 
 export default {
   name: 'Branch',

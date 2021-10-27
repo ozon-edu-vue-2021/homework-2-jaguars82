@@ -6,13 +6,16 @@ export default {
     itemData: {
       type: Object,
       default: () => {}
+    },
+    isOpened: {
+      type: Boolean,
+      default: false
     }
   },
   components: { TreeItem },
   data () {
     return {
       isFocused: false,
-      isOpened: false,
       iconSize: 50
     }
   },

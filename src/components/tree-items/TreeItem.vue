@@ -20,14 +20,17 @@ export default {
 div.wrapper {
   display: flex;
   align-items: center;
-  cursor: default;
-  user-select: none;
 }
 
 .item-name {
   color: #555;
   font-size: 20px;
   padding-left: 15px;
+}
+
+.item-name:not(.link) {
+  cursor: default;
+  user-select: none;
 }
 
 .item-name_active {
